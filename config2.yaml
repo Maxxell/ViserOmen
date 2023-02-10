@@ -1,0 +1,197 @@
+ffmpeg:
+  camera:
+#    makaicam:
+#      name: MakaiCam
+#      host: 192.168.4.252
+#      path: /cam/realmonitor?channel=1&subtype=0
+#      username: xxx
+#      password: xxx
+#      port: 554
+#      recorder:
+#        idle_timeout: 10
+#        lookback: 10
+#      frame_timeout: 10
+#      protocol: rtsp
+#      codec: h264_cuvid
+#      audio_codec: aac
+#      fps: 30
+#      mjpeg_streams:
+#        makaicamstream:
+#          width: 1920
+#          height: 1280
+#          draw_objects: true
+#          draw_motion: true
+#    zekecam:
+#      name: ZekeCam
+#      host: 192.168.5.5
+#      path: /cam/realmonitor?channel=1&subtype=0
+#      username: xxx
+#      password: xxx
+#      port: 554
+#      recorder:
+#        idle_timeout: 10
+#        lookback: 10
+#      frame_timeout: 10
+#      protocol: rtsp
+#      codec: h264_cuvid
+#      audio_codec: aac
+#      fps: 30
+#      mjpeg_streams:
+#        zekecamstream:
+#          width: 1920
+#          height: 1280
+#          draw_objects: true
+#          draw_motion: true
+    garagecam:
+      name: GarageCam
+      host: 192.168.4.202
+      path: /cam/realmonitor?channel=1&subtype=0
+      username: xxx
+      password: xxx
+      port: 554
+      recorder:
+        idle_timeout: 10
+        lookback: 10
+        retain: 2
+      frame_timeout: 10
+      protocol: rtsp
+      codec: h264_cuvid
+      audio_codec: aac
+      fps: 30
+      mjpeg_streams:
+        garagecamstream:
+          width: 1920
+          height: 1280
+          draw_objects: true
+          draw_motion: true
+    frontdoorcam:
+      name: FrontDoorCam
+      host: 192.168.7.166
+      path: /cam/realmonitor?channel=1&subtype=0
+      username: xxx
+      password: xxx
+      port: 554
+      recorder:
+        idle_timeout: 10
+        lookback: 10
+      frame_timeout: 10
+      protocol: rtsp
+      codec: h264_cuvid
+      audio_codec: aac
+      fps: 30
+      mjpeg_streams:
+        frontdoorcamstream:
+          width: 2560
+          height: 1920
+          draw_objects: true
+          draw_motion: true
+#    backyardcam:
+#      name: BackyardCam
+#      host: 192.168.7.180
+#      path: /cam/realmonitor?channel=1&subtype=0
+#      username: xxx
+#      password: xxx
+#      port: 554
+#      recorder:
+#        idle_timeout: 10
+#        lookback: 10
+#      frame_timeout: 10
+#      protocol: rtsp
+#      codec: h264_cuvid
+#      audio_codec: aac
+#      fps: 30
+#      mjpeg_streams:
+#        backyardcamstream:
+#          width: 1920
+#          height: 1280
+#          draw_objects: true
+#          draw_motion: true
+
+mog2:
+  motion_detector:
+    cameras:
+#      makaicam:
+#      zekecam:
+      garagecam:
+      frontdoorcam:
+#      backyardcam:
+
+darknet:
+  object_detector:
+    cameras:
+#      makaicam:
+#        fps: 1
+#        scan_on_motion_only: true
+#        labels:
+#          - label: person
+#            confidence: 0.8
+#            trigger_recorder: true
+#      zekecam:
+#        fps: 1
+#        scan_on_motion_only: true
+#        labels:
+#          - label: person
+#            confidence: 0.8
+#            trigger_recorder: true
+      garagecam:
+        fps: 1
+        scan_on_motion_only: true
+        labels:
+          - label: person
+            confidence: 0.8
+            trigger_recorder: true
+      frontdoorcam:
+        fps: 1
+        scan_on_motion_only: true
+        labels:
+          - label: person
+            confidence: 0.8
+            trigger_recorder: true
+#      backyardcam:
+#        fps: 1
+#        scan_on_motion_only: true
+#        labels:
+#          - label: person
+#            confidence: 0.8
+#            trigger_recorder: true
+
+#dlib:
+#  face_recognition:
+#    model: cnn
+#    expire_after: 10
+#    cameras: 
+#      frontdoorcam:
+#        labels:
+#          - person
+#    save_unknown_faces: true
+
+compreface:
+  face_recognition:
+    host: compreface
+    port: 8010
+    train: false
+    recognition_api_key: xxx
+    cameras: 
+      frontdoorcam:
+      garagecam:
+    labels: 
+      - person
+
+nvr:
+#  makaicam:
+#  zekecam:
+  garagecam:
+  frontdoorcam:
+#  backyardcam:
+
+webserver:
+
+logger:
+  default_level: debug
+
+mqtt:
+  home_assistant:
+  broker: 192.168.4.81
+  port: 1883
+  username: xxx
+  password: xxx
